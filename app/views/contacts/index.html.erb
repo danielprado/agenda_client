@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Contacts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Photo</th>
+      <th>Name</th>
+      <th>Surnames</th>
+      <th>Email</th>
+      <th>Category</th>
+      <th>Phones</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= image_tag contact.photo %>
+        <td><%= contact.name %></td>
+        <td><%= contact.surnames %></td>
+        <td><%= contact.email %></td>
+        <td><%= contact.category %> </td>
+        <td>
+         <%contact.phones.each do |phone|%>
+          <p>
+           <%= phone.number %>
+          </p>
+        <%end%>
+        <td><%= link_to 'Show', [@user,contact] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Change User', root_path %>
